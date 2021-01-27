@@ -138,6 +138,13 @@ function App() {
                     </div>
                   </div>
                 </li>
+                <li class="list-group-item">
+                  <center>
+                    <a href="/LaporanChat">
+                        <button className="btn btn-primary">Laporan Chat</button>
+                    </a>
+                  </center>
+                </li>
               </ul>
             </div>
           </div>

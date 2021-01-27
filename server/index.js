@@ -64,6 +64,38 @@ app.get("/api/get/todolist", (req, res) => {
     });
 });
 
+// app.get("/api/get/laporanChat", (req, res) => {
+//     // const id_user = req.params.id_user;
+//     const sqlSelectLaporanChat = "SELECT user.nama, laporanchat.tanggal, SUM(chat_masuk) AS chat_masuk, SUM(chat_closing) AS chat_closing FROM laporanchat INNER JOIN user ON laporanchat.id_user=user.id_user GROUP BY tanggal, nama";
+//     db.query(sqlSelectLaporanChat, (err, result) => {
+//         res.send(result);
+//     });
+// });
+
+// app.get("/api/getbyid/laporanChat/:id_user", (req, res) => {
+//     const id_user = req.params.id_user;
+//     const sqlSelectLaporanChatById = "SELECT user.nama, laporanchat.tanggal, SUM(chat_masuk) AS chat_masuk, SUM(chat_closing) AS chat_closing FROM laporanchat INNER JOIN user ON laporanchat.id_user=user.id_user WHERE laporanchat.id_user = ? GROUP BY tanggal";
+//     db.query(sqlSelectLaporanChatById, id_user, (err, result) => {
+//         res.send(result);
+//     });
+// });
+
+app.get("/api/get/laporanChat", (req, res) => {
+    // const id_user = req.params.id_user;
+    const sqlSelectLaporanChat = "SELECT user.nama, laporanchat.tanggal, laporanchat.chat_masuk, laporanchat.chat_closing FROM laporanchat INNER JOIN user ON laporanchat.id_user=user.id_user";
+    db.query(sqlSelectLaporanChat, (err, result) => {
+        res.send(result);
+    });
+});
+
+app.get("/api/getbyid/laporanChat/:id_user", (req, res) => {
+    const id_user = req.params.id_user;
+    const sqlSelectLaporanChatById = "SELECT user.nama, laporanchat.tanggal, laporanchat.chat_masuk, laporanchat.chat_closing FROM laporanchat INNER JOIN user ON laporanchat.id_user=user.id_user WHERE laporanchat.id_user = ?";
+    db.query(sqlSelectLaporanChatById, id_user, (err, result) => {
+        res.send(result);
+    });
+});
+
 app.delete("/api/delete/todolist/:id", (req, res) => {
     const id = req.params.id;
     const sqlDelete = "DELETE FROM todolist WHERE id = ?";
@@ -83,12 +115,33 @@ app.delete("/api/delete/user/:id_user", (req, res) => {
     });
 });
 
+app.delete("/api/delete/laporanChat/:id_laporan", (req, res) => {
+    const id_laporan = req.params.id_laporan;
+    const sqlDeleteLaporanChat = "DELETE FROM laporanchat WHERE id_laporan = ?";
+    db.query(sqlDeleteLaporanChat, id_laporan, (err, result) => {
+        if (err) console.log(err);
+        res.redirect("/");
+    });
+});
+
 app.put("/api/update/todolist", (req, res) => {
     const id = req.body.id;
     const status = req.body.status;
     const sqlUpdate = "UPDATE todolist SET status = ? WHERE id = ?";
     backURL = req.header('Referer') || '/';
     db.query(sqlUpdate, [status, id], (err, result) => {
+        res.redirect("/");
+    });
+});
+
+app.put("/api/update/laporanChat", (req, res) => {
+    const id_laporan = req.body.id_laporan;
+    const tanggal = req.body.tanggal;
+    const chat_masuk = req.body.chat_masuk;
+    const chat_closing = req.body.chat_closing;
+    const sqlUpdateLaporanChat = "UPDATE laporanchat SET tanggal = ?, chat_masuk = ?, chat_closing = ? WHERE id_laporan = ?";
+    backURL = req.header('Referer') || '/';
+    db.query(sqlUpdateLaporanChat, [tanggal, chat_masuk, chat_closing, id_laporan], (err, result) => {
         res.redirect("/");
     });
 });
