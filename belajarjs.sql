@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 12 Jan 2021 pada 07.34
+-- Generation Time: 27 Jan 2021 pada 07.53
 -- Versi Server: 10.1.13-MariaDB
 -- PHP Version: 7.0.8
 
@@ -19,6 +19,20 @@ SET time_zone = "+00:00";
 --
 -- Database: `belajarjs`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `laporanchat`
+--
+
+CREATE TABLE `laporanchat` (
+  `id_laporan` bigint(20) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `tanggal` date NOT NULL,
+  `chat_masuk` int(11) NOT NULL,
+  `chat_closing` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -49,6 +63,12 @@ CREATE TABLE `user` (
 --
 
 --
+-- Indexes for table `laporanchat`
+--
+ALTER TABLE `laporanchat`
+  ADD PRIMARY KEY (`id_laporan`);
+
+--
 -- Indexes for table `todolist`
 --
 ALTER TABLE `todolist`
@@ -66,25 +86,20 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `laporanchat`
+--
+ALTER TABLE `laporanchat`
+  MODIFY `id_laporan` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+--
 -- AUTO_INCREMENT for table `todolist`
 --
 ALTER TABLE `todolist`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
---
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
---
-
---
--- Ketidakleluasaan untuk tabel `todolist`
---
-ALTER TABLE `todolist`
-  ADD CONSTRAINT `todolist_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE SET NULL ON UPDATE CASCADE;
-
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
