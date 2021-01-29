@@ -1,0 +1,95 @@
+body {
+    background-color: #2D3B48;
+    padding: 20px;
+    margin: 0;
+  }
+
+  h1, h2, p, ul, li {
+    font-family: sans-serif;
+  }
+  ul.header li {
+    display: inline;
+    list-style-type: none;
+    margin: 0;
+  }
+  ul.header {
+
+    padding: 0;
+  }
+  ul.header li a {
+    color: #FFF;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 20px;
+    display: inline-block;
+  }
+  .content {
+    background-color: rgb(245, 245, 245);
+    height: 900px;
+  }
+  .content h2 {
+    padding: 0;
+    margin: 0;
+  }
+  .content li {
+    margin-bottom: 10px;
+  }
+
+  .App {
+    /* text-align: center; */
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    
+  }
+  
+  #center {
+    text-align: center;
+  }
+  
+  #title {
+    font-size: 30px;
+  }
+  
+  #set {
+    width: 30%;
+    margin: 1% 35% 1% 35%;
+    /* border: 1px solid #000000; */
+  }
+  #todo{
+    /* border: 1px solid #000000;      */
+  }
+  
+  #href{
+    text-decoration: none;
+    color: black;
+    text-transform: capitalize;
+  }
+  
+  #capital{
+    text-transform: uppercase;
+    margin-top: 5px;
+    font-size: 20px;
+  }
+  
+  #href:hover{
+    text-decoration: none;
+    color: red;
+  }
+  
+  .form input {
+    /* width: 30%; */
+    /* height: 30px; */
+  }
+  
+  .card {
+    width: 90%;
+    /* border: 2px solid black; */
+    /* border-radius: 10px; */
+    /* margin: 20px; */
+    margin-top: 5%;;
+    margin-left: 5%;
+  }
+  
+  .atas {
+    margin-top: 30px;
+  }
+  
