@@ -176,13 +176,13 @@ function Report() {
             </div>
               <div class="form-group">
                 <label>Chat Masuk</label>
-            <input className="form-control" type="number" name="chat_masuk" placeholder="Chat Masuk..." onChange={(e) => {
+            <input className="form-control" type="number" name="chat_masuk" min="0" placeholder="Chat Masuk..." onChange={(e) => {
               setChatMasuk(e.target.value)
             }}/>
             </div>
             <div class="form-group">
               <label>Chat Closing</label>
-            <input className="form-control" type="number" name="chat_closing" placeholder="Chat Closing..." onChange={(e) => {
+            <input className="form-control" type="number" name="chat_closing" min="0" placeholder="Chat Closing..." onChange={(e) => {
               setChatClosing(e.target.value)
             }} />
             </div>

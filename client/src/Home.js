@@ -84,23 +84,17 @@ function Home() {
       <div className="row">
         {userList.map((user) => {
           return (
-            <div class="col-sm-4">
+            <div class="col-sm-3">
             <div className="card" id="todo">
               <ul class="list-group list-group-flush">
                 <li class="list-group-item">
                   <div class="row">
-                    <div class="col-6 col-md-4"></div>
-                    <div class="col-6 col-md-4" id="capital"><center><b>{user.nama}</b></center></div>
-                    <div class="col-6 col-md-4">
-                      <div class="row">
-                        <div class="col-sm"></div>
-                        <div class="col-sm"></div>
-                        <div class="col-sm">
-                          <a href="/">
-                            <button className="btn btn-primary" onClick={() => {deleteUser(user.id_user)}}>x</button>
-                          </a>
-                        </div>
-                      </div>
+                    <div class="col-6 col-md-2"></div>
+                    <div class="col-6 col-md-7" id="capital"><center><b>{user.nama}</b></center></div>
+                    <div class="col-6 col-md-3">
+                      <a href="/">
+                        <button className="btn btn-primary" onClick={() => {deleteUser(user.id_user)}}>x</button>
+                      </a>
                     </div>
                   </div>
                 </li>
@@ -126,8 +120,8 @@ function Home() {
                 })} 
                 <li class="list-group-item">
                   <div class="row">
-                    <div class="col-sm-8">
-                      <input className="form-control" type="text" name="isi" placeholder="Tambah To Do..." onChange={(e) => {
+                    <div class="col-sm-7">
+                      <input className="form-control" type="text" name="isi" placeholder="Add To Do..." onChange={(e) => {
                         setIsi(e.target.value)
                       }} />
                     </div>
